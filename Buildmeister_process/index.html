@@ -1,0 +1,586 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Code_review%20copy/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Buildmeister process - Sorrentum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#buildmeister-process" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Sorrentum" class="md-header__button md-logo" aria-label="Sorrentum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sorrentum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Buildmeister process
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Sorrentum" class="md-nav__button md-logo" aria-label="Sorrentum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Sorrentum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Buildmeister process
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Code_review%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="buildmeister-process">Buildmeister process</h1>
+<!-- toc -->
+
+<ul>
+<li><a href="#general">General</a></li>
+<li><a href="#notification-system">Notification system</a></li>
+<li><a href="#buildmeister-instructions">Buildmeister instructions</a><ul>
+<li><a href="#update_amp_submodule-fails"><code>update_amp_submodule</code> fails</a></li>
+</ul>
+</li>
+<li><a href="#post-mortem-analysis-tbd">Post-mortem analysis (TBD)</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1 id="general">General</h1>
+<ul>
+<li>Buildmeister rotates every 2 weeks</li>
+<li>To see who is the Buildmeister now refer to <a href="https://docs.google.com/spreadsheets/d/1Ab6a3BVeLX1l1B3_A6rNY9pHRsofeoCw2ip2dkQ6SdA/edit#gid=0"><span class="underline">Buildmeister gsheet</span></a></li>
+<li>Each rotation should be confirmed by a 'handshake' between the outgoing
+    Buildmeister and the new one in the related Telegram chat</li>
+<li>Buildmeister is responsible for:</li>
+<li>Pushing team members to fix broken tests</li>
+<li>Conducting post-mortem analysis<ul>
+<li>Why did the break happen?</li>
+<li>What can we avoid the problem, especially through process and automation</li>
+</ul>
+</li>
+<li>Testing workflows are available via github actions:</li>
+<li>Testing workflows that need to be checked:<ul>
+<li>cmamp:</li>
+<li><a href="https://github.com/cryptokaizen/cmamp/actions/workflows/fast_tests.yml"><span class="underline">Fast tests</span></a></li>
+<li><a href="https://github.com/cryptokaizen/cmamp/actions/workflows/slow_tests.yml"><span class="underline">Slow tests</span></a></li>
+<li>dev_tools:</li>
+<li><a href="https://github.com/alphamatic/dev_tools/actions/workflows/fast_tests.yml"><span class="underline">Fast tests</span></a></li>
+<li><a href="https://github.com/alphamatic/dev_tools/actions/workflows/slow_tests.yml"><span class="underline">Slow tests</span></a></li>
+</ul>
+</li>
+<li>Refer to .github dir in the repo for update schedule of GH actions</li>
+<li>Additional information about the <a href="https://github.com/sorrentum/sorrentum/blob/master/docs/Unit_tests.md"><span class="underline">tests</span></a> and <a href="https://docs.google.com/document/d/1M8I2qt5CuCw7537_1yayeZhIfh_VoeHT26h5jgSEm3Q/edit"><span class="underline">gdoc</span></a></li>
+</ul>
+<h1 id="notification-system">Notification system</h1>
+<ul>
+<li><code>@CK_cmamp_buildbot</code> notifies the team about breaks via Telegram channel <code>CK build notifications</code></li>
+<li>A notification contains:</li>
+<li>Failing tests type: fast/slow/super-slow</li>
+<li>Repo</li>
+<li>Branch</li>
+<li>Event</li>
+<li>Link to a failing run</li>
+</ul>
+<p>Example:
+- <img alt="Alt Text" src="../Buildmeister_process_figs/image1.png" /></p>
+<h1 id="buildmeister-instructions">Buildmeister instructions</h1>
+<ul>
+<li>You receive a break notification from <code>@CK_cmamp_buildbot</code></li>
+<li>Have a look at the message</li>
+<li>Do it right away, this is always your highest priority task</li>
+<li>
+<p>Notify the team</p>
+</li>
+<li>
+<p>Post on the <code>CK build notifications</code> Telegram channel what tests broke, e.g.,<br />
+<code>FAILED knowledge_graph/vendors/test/test_utils.py::TestClean::test_clean</code></p>
+</li>
+<li>If unsure about the cause of failure (chance that failure is temporary):<ul>
+<li>Do a quick run locally for failed test</li>
+<li>If test is specific and can not be run locally, rerun the regressions</li>
+</ul>
+</li>
+<li>Ask if somebody knows what is the problem<ul>
+<li>If you know who is in charge of that test (you can use <code>git blame</code>) ask
+    directly</li>
+</ul>
+</li>
+<li>If the offender says that it's fixing the bug right away, let him / her do it</li>
+<li>
+<p>Otherwise file a bug to track the issue</p>
+</li>
+<li>
+<p>File an Issue in GH / ZH to report the failing tests and the errors</p>
+</li>
+<li>Example:<br />
+<a href="https://github.com/cryptokaizen/cmamp/issues/4386"><span class="underline">https://app.zenhub.com/workspaces/cm-615371012ed326001e044788/issues/alphamatic/dev_tools/318</span></a></li>
+<li>Issue title template <code>Build fail - {repo} {test type} ({run number})</code><ul>
+<li>Example: <code>Build fail - Cmamp fast_tests (1442077107)</code></li>
+</ul>
+</li>
+<li>Paste the URL of the failing run<ul>
+<li>Example: <a href="https://github.com/alphamatic/dev_tools/actions/runs/1497955663"><span class="underline">https://github.com/alphamatic/dev_tools/actions/runs/1497955663</span></a></li>
+</ul>
+</li>
+<li>Provide as much information as possible to give an understanding of the
+    problem</li>
+<li>List all the tests with FAILED status in a github run, e.g.,  </li>
+</ul>
+<pre><code>        FAILED knowledge_graph/vendors/test/test_p1_utils.py::TestClean::test_clean
+        FAILED knowledge_graph/vendors/nbsc/test/test_nbsc_utils.py::TestExposeNBSCMetadata::test_expose_nbsc_metadata
+</code></pre>
+<ul>
+<li>Stack trace or part of it (if it's too large)</li>
+</ul>
+<pre><code>        Traceback (most recent call last): File
+        &quot;/.../automl/hypotheses/test/test*rh_generator.py&quot;, line 104, in test1
+        kg_metadata, * = p1ut.load_release(version=&quot;0.5.2&quot;) File
+        &quot;/.../knowledge_graph/vendors/utils.py&quot;, line 53, in load_release % version,
+        File &quot;/.../amp/helpers/dbg.py&quot;, line 335, in dassert_dir_exists \_dfatal(txt,
+        msg, \*args) File &quot;/.../amp/helpers/dbg.py&quot;, line 97, in \_dfatal
+        dfatal(dfatal_txt) File &quot;/.../amp/helpers/dbg.py&quot;, line 48, in dfatal raise
+        assertion_type(ret) AssertionError:
+        ##############################################################################
+        * Failed assertion * dir='/fsx/research/data/kg/releases/timeseries_db/v0.5.2'
+        doesn't exist or it's not a dir The requested version 0.5.2 has no directory
+        associated with it.
+</code></pre>
+<ul>
+<li>Add the issue to the
+    <a href="https://app.zenhub.com/workspaces/cm-615371012ed326001e044788/issues/cryptokaizen/cmamp/167"><span class="underline">BUILD - Breaks</span></a> Epic so that we can track it</li>
+<li>If the failures are not connected to each other, file separate issues for each
+    of the potential root cause</li>
+<li>
+<p>Keep issues grouped according to the codebase organization</p>
+</li>
+<li>
+<p>Post the issue reference on Telegram channel CK build notifications</p>
+</li>
+<li>You can quickly discuss there who will take care of the broken tests, assign
+    that person</li>
+<li>You can use <code>git blame</code> to see who wrote the test</li>
+<li>
+<p>Otherwise, assign it to the person who can reroute</p>
+</li>
+<li>
+<p>Our policy is "fix it or revert"</p>
+</li>
+<li>
+<p>The build needs to go back to green within 1 hr</p>
+<ul>
+<li>Either the person responsible for the break fixes the bug within 1 hour</li>
+<li>Or you need to push the responsible person to disable the test</li>
+<li>Do not make the decision about disabling the test yourself!</li>
+<li>First, check with the responsible person, and if he / she is ok with
+  disabling, do it</li>
+<li>NB! Disabling the test is not the first choice, it's a measure of last
+  resort!</li>
+</ul>
+</li>
+<li>
+<p>Regularly check issues that belong to the Epic <a href="https://app.zenhub.com/workspaces/cm-615371012ed326001e044788/issues/cryptokaizen/cmamp/167"><span class="underline">BUILD - Breaks</span></a>.</p>
+</li>
+<li>You have to update the break issues if the problem was solved or partially
+    solved.</li>
+<li>
+<p>Pay special attention to the failures which resulted in disabling tests</p>
+</li>
+<li>
+<p>When your time of the Buildmeister duties is over, confirm the rotation with
+  the next responsible person in the related Telegram chat.</p>
+</li>
+</ul>
+<h3 id="update_amp_submodule-fails"><code>update_amp_submodule</code> fails</h3>
+<ul>
+<li>
+<p>When this happens, the first thing to do is attempt to update the <code>amp</code>
+  pointer manually</p>
+</li>
+<li>
+<p>Instructions:</p>
+</li>
+</ul>
+<pre><code>        &gt; cd src/dev_tools1 
+        &gt; git checkout master 
+        &gt; git pull --recurse-submodules 
+        &gt; cd amp 
+        &gt; git checkout master 
+        &gt; git pull origin master 
+        &gt; cd .. 
+        &gt; git add &quot;amp&quot; 
+        &gt; git commit -m &quot;Update amp pointer&quot;
+</code></pre>
+<p>There is also an invoke target <code>git_roll_amp_forward</code> that does an equivalent
+operation</p>
+<h1 id="post-mortem-analysis-tbd">Post-mortem analysis (TBD)</h1>
+<ul>
+<li>We want to understand on why builds are broken so that we can improve the
+  system to make it more robust</li>
+<li>In order to do that, we need to understand the failure modes of the system</li>
+<li>
+<p>For this reason we keep a log of all the issues and what was the root cause</p>
+</li>
+<li>
+<p>After each break fill the
+  <a href="https://docs.google.com/spreadsheets/d/1AajgLnRQka9-W8mKOkobg8QOzaEVOnIMlDi8wWVATeA/edit#gid=1363431255">Buildmeister spreadsheet sheet "Post-mortem breaks analysis"</a></p>
+</li>
+<li>
+<p><code>Date</code> column:</p>
+</li>
+<li>Enter the date when the break took place</li>
+<li>
+<p>Keep the bug ordered in reverse chronological order (i.e., most recent dates
+    first)</p>
+</li>
+<li>
+<p><code>Repo</code> column:</p>
+</li>
+<li>
+<p>Specify the repo where break occurred</p>
+<ul>
+<li><code>amp</code></li>
+<li>...</li>
+</ul>
+</li>
+<li>
+<p><code>Test type</code> column:</p>
+</li>
+<li>
+<p>Specify the type of the failing tests</p>
+<ul>
+<li>Fast</li>
+<li>Slow</li>
+<li>Super-slow</li>
+</ul>
+</li>
+<li>
+<p><code>Link</code> column:</p>
+</li>
+<li>
+<p>Provide a link to a failing run</p>
+</li>
+<li>
+<p><code>Reason</code> column:</p>
+</li>
+<li>
+<p>Specify the reason of the break</p>
+<ul>
+<li>Merged a branch with broken tests</li>
+<li>Master was not merged in a branch</li>
+<li>Merged broken slow tests without knowing that</li>
+<li>Underlying data changed</li>
+</ul>
+</li>
+<li>
+<p><code>Issue</code> column:</p>
+</li>
+<li>
+<p>Provide the link to the ZH issue with the break description</p>
+</li>
+<li>
+<p><code>Solution</code> column:</p>
+</li>
+<li>Provide the solution description of the problem<ul>
+<li>Problem that led to the break was solved</li>
+<li>Failing tests were disabled, i.e. problem was not solved</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
